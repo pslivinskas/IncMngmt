@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/new/postget}" th:object="${key_incident}" method="post">
+    <label>Search for incident by title or ID:</label>
+    <input type="text" th:field="*{key_incident.title}" id="title"/>
+    <input type="submit" value="Submit"/>
+    <input type="submit" value="Clear" onclick="document.getElementById('title').value = ''"/>
+</form>
+<br>
+
+<table>
+    <tr>
+        <th class="th">#</th>
+        <th class="th">id</th>
+        <th class="th">Incident Title</th>
+        <th class="th">Incident Description</th>
+        <th class="th">Priority</th>
+        <th class="th">Updated On</th>
+    </tr>
+
+    <tr th:if="${#lists.isEmpty(key_incidents_list)}">
+        <td colspan="5">No Records found. Add some...!</td>
+    </tr>
+
+    <tr th:each="incident : ${key_incident}">
+
+        <td class="td" th:text="${incidentStat.index+1}"></td>
+        <td class="td" th:text="${incident.id}"></td>
+        <td class="td" th:text="${incident.title}"></td>
+        <td class="td" th:text="${incident.description}"></td>
+        <td class="td" th:text="${incident.priority}"></td>
+        <td class="td" th:text="${incident.updatedOn}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link th:href="@{/styles/customer/basic.css}" rel="stylesheet"/>
+  <link th:href="@{/styles/customer/index.css}" rel="stylesheet"/>
+  <link rel="stylesheet" href="/static/styles/incident/basic.css"/>
+  <link rel="stylesheet" href="/static/styles/incident/index.css"/>
+</head>
+<body>
+<div class="incident" th:object="${key_incidents_list}">
+  <div class="label"><p>Id: </p></div>
+  <div class="incident-data">
+    <p th:text="*{id}"> Some text here</p>
+  </div>
+  <div class="label"><p>Title: </p></div>
+  <div class="incident-data">
+    <p th:text="${key_incidents_list.title}"> Some text here</p>
+  </div>
+  <div class="label"><p>Description: </p></div>
+  <div class="incident-data">
+    <p th:text="${key_incidents_list.description}"> Some text here</p>
+  </div>
+  <div class="label"><p>Priority: </p></div>
+  <div class="incident-data">
+    <p th:text="${key_incidents_list.priority}"> Some text here</p>
+  </div>
+
+</div>
+</body>
+</html>
